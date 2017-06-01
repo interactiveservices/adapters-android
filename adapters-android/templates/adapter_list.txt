@@ -1,0 +1,45 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import su.ias.components.adapters.BaseListAdapter;
+import su.ias.components.adapters.OnItemClickListener;
+
+#parse("File Header.java")
+
+public class ${NAME} extends BaseListAdapter<${LIST_MODEL}, ${NAME}.ViewHolder> {
+
+    public ${NAME}(List<${LIST_MODEL}> list, OnItemClickListener listener) {
+        super(listener, list);
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = getLayoutInflater(parent).inflate(${ITEM_LAYOUT}, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        ViewHolder viewHolder = (ViewHolder) holder;
+        ${LIST_MODEL} item = getItem(position);
+
+        // TODO here you can setup your holder's views
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        // TODO bind your layout's views here with @BindView(R.id.view)
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+    }
+}
