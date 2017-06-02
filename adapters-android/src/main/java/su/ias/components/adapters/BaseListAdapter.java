@@ -65,4 +65,8 @@ public abstract class BaseListAdapter<DateType, VH extends RecyclerView.ViewHold
     protected LayoutInflater getLayoutInflater(ViewGroup parent) {
         return LayoutInflater.from(parent.getContext());
     }
+
+    public List<DateType> getItems() {
+        return list;
+    }
 }
