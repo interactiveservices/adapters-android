@@ -1,5 +1,6 @@
 package su.ias.adapters;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -9,6 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import su.ias.components.adapters.OnItemClickListener;
+import su.ias.pagers.fragment.FragmentPagerActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -17,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView rcViewList = (RecyclerView) findViewById(R.id.rcview_item);
-        rcViewList.setAdapter(new ItemAdapter(generateFakeItems(), null));
+        rcViewList.setAdapter(new ItemAdapter(generateFakeItems(), new OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                startActivity(new Intent(MainActivity.this, FragmentPagerActivity.class));
+            }
+        }));
         rcViewList.setLayoutManager(new LinearLayoutManager(this));
         rcViewList.addItemDecoration(new DividerItemDecoration(this,
                                                                DividerItemDecoration.VERTICAL));

@@ -25,11 +25,19 @@ public class ItemAdapter extends BaseListAdapter<Item, ItemAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         ViewHolder viewHolder = (ViewHolder) holder;
         Item item = getItem(position);
 
         viewHolder.txtItemName.setText(item.getName());
+        viewHolder.txtItemName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onItemClick(holder.getAdapterPosition());
+                }
+            }
+        });
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
