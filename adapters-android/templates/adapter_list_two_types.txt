@@ -1,0 +1,85 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import su.ias.components.adapters.BaseListAdapter;
+import su.ias.components.adapters.OnItemClickListener;
+
+#parse("File Header.java")
+
+public class ${NAME} extends BaseListAdapter<Object, RecyclerView.ViewHolder> {
+
+    private static final int TYPE_FIRST = 1;
+    private static final int TYPE_SECOND = 2;
+
+    public ${NAME}(List<Object> list, OnItemClickListener listener) {
+        super(list, listener);
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        switch (viewType) {
+            case TYPE_FIRST:
+                return new FirstViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
+                                                                            parent,
+                                                                            false));
+            case TYPE_SECOND:
+                return new SecondViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_SECOND},
+                                                                            parent,
+                                                                            false));
+            default:
+                return new FirstViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
+                                                                              parent,
+                                                                              false));
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof FirstViewHolder) {
+            FirstViewHolder firstViewHolder = (FirstViewHolder) holder;
+            // TODO setup first view holder here
+        } else if (holder instanceof SecondViewHolder) {
+            SecondViewHolder secondViewHolder = (SecondViewHolder) holder;
+            // TODO setup second view holder here
+        }
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        Object item = getItem(position);
+        if (item instanceof ${FIRST_LIST_ITEM}) {
+            return TYPE_FIRST;
+        }
+        if (item instanceof ${SECOND_LIST_ITEM}) {
+            return TYPE_SECOND;
+        }
+        return super.getItemViewType(position);
+    }
+
+    class FirstViewHolder extends RecyclerView.ViewHolder {
+
+        // TODO bind views for first view holder
+
+        FirstViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+    }
+
+    class SecondViewHolder extends RecyclerView.ViewHolder {
+
+        // TODO bind views for second view holder
+
+        SecondViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+        }
+
+}
