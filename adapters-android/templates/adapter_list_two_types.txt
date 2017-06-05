@@ -26,15 +26,15 @@ public class ${NAME} extends BaseListAdapter<Object, RecyclerView.ViewHolder> {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
             case TYPE_FIRST:
-                return new FirstViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
+                return new ${FIRST_LIST_ITEM}ViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
                                                                             parent,
                                                                             false));
             case TYPE_SECOND:
-                return new SecondViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_SECOND},
+                return new ${SECOND_LIST_ITEM}ViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_SECOND},
                                                                             parent,
                                                                             false));
             default:
-                return new FirstViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
+                return new ${FIRST_LIST_ITEM}ViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
                                                                               parent,
                                                                               false));
         }
@@ -42,11 +42,11 @@ public class ${NAME} extends BaseListAdapter<Object, RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof FirstViewHolder) {
-            FirstViewHolder firstViewHolder = (FirstViewHolder) holder;
+        if (holder instanceof ${FIRST_LIST_ITEM}ViewHolder) {
+            ${FIRST_LIST_ITEM}ViewHolder viewHolder = (${FIRST_LIST_ITEM}ViewHolder) holder;
             // TODO setup first view holder here
-        } else if (holder instanceof SecondViewHolder) {
-            SecondViewHolder secondViewHolder = (SecondViewHolder) holder;
+        } else if (holder instanceof ${SECOND_LIST_ITEM}ViewHolder) {
+            ${SECOND_LIST_ITEM}ViewHolder viewHolder2 = (${SECOND_LIST_ITEM}ViewHolder) holder;
             // TODO setup second view holder here
         }
     }
@@ -63,23 +63,23 @@ public class ${NAME} extends BaseListAdapter<Object, RecyclerView.ViewHolder> {
         return super.getItemViewType(position);
     }
 
-    class FirstViewHolder extends RecyclerView.ViewHolder {
+    class ${FIRST_LIST_ITEM}ViewHolder extends RecyclerView.ViewHolder {
 
         // TODO bind views for first view holder
 
-        FirstViewHolder(View itemView) {
+        ${FIRST_LIST_ITEM}ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
     }
 
-    class SecondViewHolder extends RecyclerView.ViewHolder {
+    class ${SECOND_LIST_ITEM}ViewHolder extends RecyclerView.ViewHolder {
 
-        // TODO bind views for second view holder
+        // TODO bind views for first view holder
 
-        SecondViewHolder(View itemView) {
+        ${SECOND_LIST_ITEM}ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-
+    }
 }
