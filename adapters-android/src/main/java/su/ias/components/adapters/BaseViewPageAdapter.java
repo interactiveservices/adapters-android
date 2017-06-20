@@ -39,4 +39,19 @@ public class BaseViewPageAdapter extends PagerAdapter {
     public boolean isViewFromObject(View view, Object object) {
         return view == object;
     }
+
+    public void addItem(View view) {
+        views.add(view);
+        notifyDataSetChanged();
+    }
+
+    public void addItem(int index, View view) {
+        views.add(index, view);
+        notifyDataSetChanged();
+    }
+
+    public void deleteItem(int position) {
+        views.remove(position);
+        notifyDataSetChanged();
+    }
 }

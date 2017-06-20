@@ -66,7 +66,18 @@ public abstract class BaseListAdapter<DataType, VH extends RecyclerView.ViewHold
         return LayoutInflater.from(parent.getContext());
     }
 
+    /**
+     * @return all items from adapter
+     */
     public List<DataType> getItems() {
         return list;
+    }
+
+    /**
+     * remove all data from adapter
+     */
+    public void clear() {
+        list.clear();
+        notifyDataSetChanged();
     }
 }
