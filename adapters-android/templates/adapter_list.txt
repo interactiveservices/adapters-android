@@ -20,9 +20,8 @@ public class ${NAME} extends BaseListAdapter<${LIST_MODEL}, ${NAME}.ViewHolder> 
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = getLayoutInflater(parent).inflate(${ITEM_LAYOUT}, parent, false);
-        return new ViewHolder(view);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {    
+        return new ViewHolder(inflate(${ITEM_LAYOUT}, parent));
     }
 
     @Override

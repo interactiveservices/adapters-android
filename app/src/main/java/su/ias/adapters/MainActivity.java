@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView rcViewList = (RecyclerView) findViewById(R.id.rcview_item);
+        RecyclerView rcViewList = (RecyclerView) findViewById(R.id.rc_item);
         rcViewList.setAdapter(new ItemAdapter(generateFakeItems(), new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {

@@ -1,8 +1,10 @@
 package su.ias.components.adapters;
 
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
@@ -64,6 +66,10 @@ public abstract class BaseListAdapter<DataType, VH extends RecyclerView.ViewHold
 
     protected LayoutInflater getLayoutInflater(ViewGroup parent) {
         return LayoutInflater.from(parent.getContext());
+    }
+
+    protected View inflate(@LayoutRes int layout, ViewGroup parent){
+        return getLayoutInflater(parent).inflate(layout, parent, false);
     }
 
     /**

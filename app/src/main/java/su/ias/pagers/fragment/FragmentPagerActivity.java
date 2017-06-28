@@ -18,7 +18,7 @@ public class FragmentPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_pager);
 
-        LockedViewPager viewPager = (LockedViewPager) findViewById(R.id.viewpager_fragment);
+        LockedViewPager viewPager = (LockedViewPager) findViewById(R.id.vp_fragment);
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(ItemFragment.newInstance("test fragment #1, swipe to show next fragment"));
         fragmentList.add(ItemFragment.newInstance("test fragment #2"));

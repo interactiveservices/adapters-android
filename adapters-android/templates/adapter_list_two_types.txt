@@ -24,19 +24,11 @@ public class ${NAME} extends BaseListAdapter<Object, RecyclerView.ViewHolder> {
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        switch (viewType) {
-            case TYPE_FIRST:
-                return new ${FIRST_LIST_ITEM}ViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
-                                                                            parent,
-                                                                            false));
+        switch (viewType) {        
             case TYPE_SECOND:
-                return new ${SECOND_LIST_ITEM}ViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_SECOND},
-                                                                            parent,
-                                                                            false));
+                return new ${SECOND_LIST_ITEM}ViewHolder(inflate(${ITEM_LAYOUT_SECOND}, parent));
             default:
-                return new ${FIRST_LIST_ITEM}ViewHolder(getLayoutInflater(parent).inflate(${ITEM_LAYOUT_FIRST},
-                                                                              parent,
-                                                                              false));
+                return new ${FIRST_LIST_ITEM}ViewHolder(inflate(${ITEM_LAYOUT_FIRST}, parent);
         }
     }
 

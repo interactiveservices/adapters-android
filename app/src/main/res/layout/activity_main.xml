@@ -7,7 +7,7 @@
     tools:context="su.ias.adapters.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcview_item"
+        android:id="@+id/rc_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,12 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context="su.ias.pagers.fragment.ItemFragment">
 
     <TextView
         android:id="@+id/txt_label"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         tools:text="fragment label" />
 
 </FrameLayout>

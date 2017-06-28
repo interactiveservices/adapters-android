@@ -20,17 +20,15 @@ public class ItemAdapter extends BaseListAdapter<Item, ItemAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = getLayoutInflater(parent).inflate(R.layout.item_list, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(inflate(R.layout.item_list, parent));
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        ViewHolder viewHolder = (ViewHolder) holder;
         Item item = getItem(position);
 
-        viewHolder.txtItemName.setText(item.getName());
-        viewHolder.txtItemName.setOnClickListener(new View.OnClickListener() {
+        holder.txtItemName.setText(item.getName());
+        holder.txtItemName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (listener != null) {
